@@ -1,0 +1,9 @@
+for css bootstrap styling go to https://getbootstrap.com/docs/3.3/getting-started/*/
+and copy something like below (under Bootstrap CDN:*/
+/*<!-- Latest compiled and minified CSS -->*/
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">*/
+
+then place that code in your index.html file above <title>React App</title>*/
+then create index.css file for styling code*/
+remember to import index.css to Components where you want to apply this styling*/
+classes start with ex: .classStyling*/
