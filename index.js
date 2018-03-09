@@ -6,8 +6,9 @@ import { Provider } from 'react-redux';
 import rootReducer from './reducers';
 import App from './components/App';
 import Stack from './components/Stack';
+import Stackform from './components/Stackform';
 import { setStack} from "./actions/index";
-import index from 'index.css';
+import './index.css';
 
 const store = createStore(rootReducer);
 store.subscribe(() => console.log('store', store.getState()));
@@ -25,6 +26,7 @@ ReactDOM.render(
         <Switch>
             <Route exact path='/' component={App} />
             <Route path='/stack' component={Stack} />
+            <Route path='/stack_form' component={Stackform}/>
         </Switch>
     </BrowserRouter>
     </Provider>,

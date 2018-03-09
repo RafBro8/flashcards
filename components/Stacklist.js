@@ -1,19 +1,23 @@
 import React, { Component } from 'react';
-import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import stacks from '../data/stacks.json';
-import { setStack } from "../actions/index";
+import { setStack, loadStacks } from "../actions/index";
 
 
-class Stacklist extends Component {
+export class Stacklist extends Component {
+
+    componentDidMount() {
+        if (this.props.stacks.length === 0)
+        this.props.loadStacks(stacks);
+    }
 
     render() {
         //console.log('stacklist props', this.props);
         return (
             <div>
                 {
-                    stacks.map(stack => {
+                    this.props.stacks.map(stack => {
                         return (
                             <Link
                                 key={stack.id}
@@ -29,17 +33,20 @@ class Stacklist extends Component {
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({ setStack }, dispatch);
+function mapStateToProps(state) {
+    return { stacks: state.stacks };
 }
 
-export default connect(null, mapDispatchToProps)(Stacklist);
+export default connect(mapStateToProps, { setStack, loadStacks })(Stacklist);
 
 
 //connect this Component to Redux so it has access to the Store and is able to dispatch Actions
 //connect takes 2 parameters that are also functions
 //1st parameter (mapStateToProps) in connect() handles connecting Component to the Store and getting back data
 //it also describes which part of Store we want this Component to listen to
+
+//mapStateToProps() allows to select part of the State and return that
+//onto the Props of the Component
 
 //2nd parameter (mapDispatchToProps) in connect() handles allowing Component
 // to use the Action Creators and send Actions to Reducers to update Store
