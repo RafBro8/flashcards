@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import Card from '../components/Card';
 
-class Stack extends Component {
+//exporting this class on line below makes it easier to Shallow test it
+
+export class Stack extends Component {
 
     render() {
         //console.log('stack props', this.props);

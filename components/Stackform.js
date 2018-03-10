@@ -4,7 +4,10 @@ import { Link } from 'react-router-dom';
 import { Form, FormGroup, FormControl, ControlLabel, Button } from 'react-bootstrap';
 import { addStack } from "../actions/index";
 
-class Stackform extends Component {
+
+//exporting this class on line below makes it easier to Shallow test it
+
+export class Stackform extends Component {
     constructor() {
         super();
 

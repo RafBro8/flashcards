@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import stacks from '../data/stacks.json';
 import { setStack, loadStacks } from "../actions/index";
 
+//exporting this class on line below makes it easier to Shallow test it
 
 export class Stacklist extends Component {
 
